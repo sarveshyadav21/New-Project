@@ -1,8 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
-import {sarveshBio} from "@/app/data/bio";
+import { sarveshBio } from "../../../data/bio";
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY!);
-console.error("THis is api key",process.env.GOOGLE_API_KEY!);
 export async function POST(req: Request) {
   try {
   console.log("Message coming ", Request);
