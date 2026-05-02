@@ -41,5 +41,3 @@ model Session {
 
   @@schema("user_auth")
 }
-
-moder 
