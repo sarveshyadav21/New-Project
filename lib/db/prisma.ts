@@ -1,3 +1,3 @@
 // Your hand-written Prisma client singleton should live here.
-
-export {};
+import { PrismaClient } from "../generated/prisma/client";
+export const prisma = new PrismaClient();

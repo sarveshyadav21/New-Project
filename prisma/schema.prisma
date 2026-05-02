@@ -17,7 +17,7 @@ datasource db {
 
 
 model User{
-  userId String   @id @default(uuid())
+  userId          String   @id @default(uuid())
   firstName       String
   lastName        String
   phoneNumber     String?   @unique
@@ -31,13 +31,13 @@ model User{
 }
 
 model Session {
-  id        String   @id @default(uuid())
+  sessionId        String   @id @default(uuid())
   userId    String
   tokenHash String   @unique
   expiresAt DateTime
   createdAt DateTime @default(now())
 
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
 
   @@schema("user_auth")
 }
