@@ -24,7 +24,7 @@ export function ChatMessage({ role, content }: Props) {
           "max-w-[88%] rounded-2xl px-3.5 py-2.5",
           isUser
             ? "rounded-br-md bg-violet-600 text-white"
-            : "rounded-bl-md border border-white/10 bg-zinc-900/90 text-zinc-200",
+            : "rounded-bl-md border border-border bg-surface/90 text-foreground",
         )}
       >
         {!isUser && (
@@ -36,7 +36,7 @@ export function ChatMessage({ role, content }: Props) {
         <div
           className={cn(
             "chat-markdown text-[13px] leading-relaxed",
-            isUser ? "text-white" : "text-zinc-300",
+            isUser ? "text-white" : "text-foreground/90",
           )}
         >
           <ReactMarkdown
@@ -54,7 +54,7 @@ export function ChatMessage({ role, content }: Props) {
                   {children}
                 </ol>
               ),
-              li: ({ children }) => <li className="text-zinc-300">{children}</li>,
+              li: ({ children }) => <li className="text-foreground/90">{children}</li>,
               strong: ({ children }) => (
                 <strong className="font-semibold text-white">{children}</strong>
               ),

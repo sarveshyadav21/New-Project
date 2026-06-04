@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Brain, Rocket, Shield, Zap } from "lucide-react";
 import { Section } from "./Section";
 
@@ -31,15 +30,13 @@ export function About() {
   return (
     <Section id="about" subtitle="Introduction" title="Building the future of intelligent ops">
       <div className="grid gap-12 lg:grid-cols-2">
-        <motion.p
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="text-lg leading-8 text-zinc-400"
+        <p
+          data-reveal
+          className="text-lg leading-8 text-muted-foreground will-change-transform"
         >
           I&apos;m a Full-Stack SDE with 2+ years across Java (Spring Boot),
           Node.js, and Next.js — based in Bangalore. I build{" "}
-          <span className="text-white">multi-tenant SaaS</span>, real-time
+          <span className="text-foreground">multi-tenant SaaS</span>, real-time
           WebSocket systems, and AI microservices for 500+ organizations at
           Sheshi AI.
           <br />
@@ -48,23 +45,22 @@ export function About() {
           <span className="text-violet-300">backend architecture</span>,{" "}
           <span className="text-cyan-300">real-time UX</span>, and{" "}
           <span className="text-fuchsia-300">applied machine learning</span>.
-        </motion.p>
+        </p>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          {highlights.map((item, index) => (
-            <motion.div
+        <div
+          data-reveal-stagger
+          className="grid gap-4 sm:grid-cols-2"
+        >
+          {highlights.map((item) => (
+            <div
               key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -4 }}
-              className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm"
+              data-reveal-item
+              className="rounded-2xl border border-border bg-foreground/[0.03] p-5 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1"
             >
               <item.icon className="h-8 w-8 text-violet-400" />
-              <h3 className="mt-3 font-semibold text-white">{item.title}</h3>
-              <p className="mt-2 text-sm text-zinc-500">{item.text}</p>
-            </motion.div>
+              <h3 className="mt-3 font-semibold text-foreground">{item.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{item.text}</p>
+            </div>
           ))}
         </div>
       </div>

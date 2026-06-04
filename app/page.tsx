@@ -9,10 +9,12 @@ import { Navbar } from "../components/portfolio/Navbar";
 import { Projects } from "../components/portfolio/Projects";
 import { Skills } from "../components/portfolio/Skills";
 import { PortfolioChatbot } from "../components/chat/PortfolioChatbot";
+import { PortfolioScrollAnimations } from "../components/portfolio/PortfolioScrollAnimations";
 
 export default function PortfolioPage() {
   return (
     <div className="grid-bg relative min-h-screen">
+      <PortfolioScrollAnimations />
       <Navbar />
       <main>
         <Hero />

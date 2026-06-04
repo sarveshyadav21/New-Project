@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, MapPin } from "lucide-react";
 import { Section } from "./Section";
 import { profile } from "../../data/bio";
@@ -8,13 +7,11 @@ import { profile } from "../../data/bio";
 export function Contact() {
   return (
     <Section id="contact" subtitle="Get in touch" title="Let's build something remarkable">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mx-auto max-w-2xl rounded-3xl border border-violet-500/20 bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/10 p-10 text-center"
+      <div
+        data-reveal
+        className="mx-auto max-w-2xl rounded-3xl border border-violet-500/20 bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/10 p-10 text-center will-change-transform"
       >
-        <p className="text-lg text-zinc-400">
+        <p className="text-lg text-muted-foreground">
           Open to full-time roles, contract work, and interesting AI product
           collaborations.
         </p>
@@ -29,10 +26,10 @@ export function Contact() {
           </a>
         </div>
 
-        <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-zinc-500">
+        <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
           <a
             href={`tel:${profile.phone}`}
-            className="inline-flex items-center gap-2 hover:text-white"
+            className="inline-flex items-center gap-2 hover:text-foreground"
           >
             {profile.phone}
           </a>
@@ -44,7 +41,7 @@ export function Contact() {
             href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 hover:text-white"
+            className="inline-flex items-center gap-2 hover:text-foreground"
           >
             <Github className="h-4 w-4" />
             GitHub
@@ -53,13 +50,13 @@ export function Contact() {
             href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 hover:text-white"
+            className="inline-flex items-center gap-2 hover:text-foreground"
           >
             <Linkedin className="h-4 w-4" />
             LinkedIn
           </a>
         </div>
-      </motion.div>
+      </div>
     </Section>
   );
 }

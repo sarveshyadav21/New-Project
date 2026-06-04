@@ -1,21 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { skills } from "../../data/projects";
 
 export function Skills() {
   return (
     <Section id="skills" subtitle="Expertise" title="Skills & technologies">
-      <div className="grid gap-6 sm:grid-cols-2">
-        {skills.map((group, groupIndex) => (
-          <motion.div
+      <div data-reveal-stagger className="grid gap-6 sm:grid-cols-2">
+        {skills.map((group) => (
+          <div
             key={group.category}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: groupIndex * 0.08 }}
-            className="rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900/80 to-zinc-950 p-6"
+            data-reveal-item
+            className="rounded-2xl border border-border bg-gradient-to-br from-surface/80 to-background p-6 transition-transform duration-300 hover:-translate-y-1"
           >
             <h3 className="text-sm font-semibold uppercase tracking-wide text-violet-400">
               {group.category}
@@ -24,13 +20,13 @@ export function Skills() {
               {group.items.map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1.5 text-sm text-zinc-300 transition hover:border-violet-500/40 hover:text-white"
+                  className="rounded-full border border-border bg-surface px-3 py-1.5 text-sm text-foreground/80 transition hover:border-violet-500/50 hover:text-foreground"
                 >
                   {skill}
                 </span>
               ))}
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </Section>

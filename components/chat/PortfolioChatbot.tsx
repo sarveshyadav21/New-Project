@@ -95,20 +95,20 @@ export function PortfolioChatbot({ variant = "floating" }: Props) {
   const chatPanel = (
     <div
       className={cn(
-        "flex flex-col overflow-hidden border border-white/10 bg-[#0a0f1a]/95 shadow-2xl backdrop-blur-xl",
+        "flex flex-col overflow-hidden border border-border bg-surface/95 shadow-2xl backdrop-blur-xl",
         variant === "embedded"
           ? "h-[520px] w-full rounded-3xl"
           : "h-[min(520px,70vh)] w-[min(400px,calc(100vw-2rem))] rounded-2xl",
       )}
     >
-      <div className="flex items-center justify-between border-b border-white/10 bg-violet-500/10 px-4 py-3">
+      <div className="flex items-center justify-between border-b border-border bg-violet-500/10 px-4 py-3">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-600 text-sm font-bold text-white">
             SY
           </div>
           <div>
             <p className="text-sm font-semibold text-white">Sarvesh Yadav</p>
-            <p className="text-xs text-zinc-500">
+            <p className="text-xs text-muted-foreground">
               {provider === "ollama"
                 ? "Online · replying via Ollama"
                 : provider === "gemini"
@@ -122,7 +122,7 @@ export function PortfolioChatbot({ variant = "floating" }: Props) {
           <button
             type="button"
             onClick={() => setOpen(false)}
-            className="rounded-lg p-2 text-zinc-500 hover:bg-white/5 hover:text-white"
+            className="rounded-lg p-2 text-muted-foreground hover:bg-foreground/5 hover:text-foreground"
           >
             <Minimize2 className="h-4 w-4" />
           </button>
@@ -131,7 +131,7 @@ export function PortfolioChatbot({ variant = "floating" }: Props) {
 
       <div
         ref={scrollRef}
-        className="chat-scrollbar flex-1 space-y-3 overflow-y-auto bg-zinc-950/50 px-3 py-4"
+        className="chat-scrollbar flex-1 space-y-3 overflow-y-auto bg-background/50 px-3 py-4"
       >
         {messages.map((message, index) => (
           <ChatMessage
@@ -142,7 +142,7 @@ export function PortfolioChatbot({ variant = "floating" }: Props) {
         ))}
 
         {loading && (
-          <div className="flex items-center gap-2 pl-9 text-xs text-zinc-500">
+          <div className="flex items-center gap-2 pl-9 text-xs text-muted-foreground">
             <span className="flex gap-1">
               {[0, 1, 2].map((dot) => (
                 <motion.span
@@ -169,7 +169,7 @@ export function PortfolioChatbot({ variant = "floating" }: Props) {
               key={starter}
               type="button"
               onClick={() => sendMessage(starter)}
-              className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1.5 text-xs text-zinc-400 transition hover:border-violet-500/40 hover:text-white"
+              className="rounded-full border border-border bg-surface px-3 py-1.5 text-xs text-muted-foreground transition hover:border-violet-500/40 hover:text-foreground"
             >
               {starter}
             </button>
@@ -177,14 +177,14 @@ export function PortfolioChatbot({ variant = "floating" }: Props) {
         </div>
       )}
 
-      <div className="border-t border-white/10 p-3">
+      <div className="border-t border-border p-3">
         <div className="flex gap-2">
           <input
             value={input}
             onChange={(event) => setInput(event.target.value)}
             onKeyDown={(event) => event.key === "Enter" && sendMessage()}
             placeholder="Message Sarvesh…"
-            className="flex-1 rounded-xl border border-zinc-800 bg-zinc-950 px-4 py-2.5 text-sm text-white outline-none placeholder:text-zinc-600 focus:border-violet-500/50"
+            className="flex-1 rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-white outline-none placeholder:text-muted-foreground focus:border-violet-500/50"
           />
           <button
             type="button"

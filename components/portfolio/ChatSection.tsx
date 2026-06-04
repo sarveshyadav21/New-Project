@@ -18,12 +18,12 @@ export function ChatSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
         >
-          <p className="text-lg leading-8 text-zinc-400">
+          <p className="text-lg leading-8 text-muted-foreground">
             It&apos;s me — not a generic bot. Ask about my work at Sheshi, the
             Incident Intelligence Platform, or how to collaborate. I keep
             answers short and straight.
           </p>
-          <ul className="mt-6 space-y-3 text-sm text-zinc-500">
+          <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">
               <Sparkles className="h-4 w-4 text-violet-400" />
               Instant answers about skills & experience

@@ -3,11 +3,27 @@
 @tailwind utilities;
 
 :root {
+  --bg: #f4f4f5;
+  --surface: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --text: #18181b;
+  --text-muted: #71717a;
+  --accent: #7c3aed;
+  --accent-2: #0891b2;
+  --grid-line: rgba(0, 0, 0, 0.06);
+  --glow-opacity: 0.35;
+}
+
+.dark {
   --bg: #030712;
   --surface: #0a0f1a;
   --border: rgba(255, 255, 255, 0.08);
+  --text: #f4f4f5;
+  --text-muted: #a1a1aa;
   --accent: #8b5cf6;
   --accent-2: #22d3ee;
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --glow-opacity: 0.5;
 }
 
 html {
@@ -16,7 +32,7 @@ html {
 
 body {
   background: var(--bg);
-  color: #f4f4f5;
+  color: var(--text);
   min-height: 100vh;
   font-family:
     ui-sans-serif,
@@ -31,19 +47,20 @@ body {
 
 ::selection {
   background: rgba(139, 92, 246, 0.35);
-  color: white;
+  color: var(--text);
 }
 
 .grid-bg {
+  background-color: var(--bg);
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
 .glow-orb {
   filter: blur(80px);
-  opacity: 0.5;
+  opacity: var(--glow-opacity);
   pointer-events: none;
 }
 
@@ -73,9 +90,9 @@ body {
 .text-shimmer {
   background: linear-gradient(
     90deg,
-    #a1a1aa 0%,
-    #fff 40%,
-    #a1a1aa 80%
+    var(--text-muted) 0%,
+    var(--text) 40%,
+    var(--text-muted) 80%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;

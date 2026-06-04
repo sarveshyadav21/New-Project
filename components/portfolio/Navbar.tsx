@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sparkles } from "lucide-react";
 import { profile } from "../../data/bio";
+import { ThemeToggle } from "../theme/theme-toggle";
 
 const links = [
   { href: "#about", label: "About" },
@@ -30,24 +31,25 @@ export function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-white/10 bg-[#030712]/80 backdrop-blur-xl"
+          ? "border-b border-border bg-background/85 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#" className="flex items-center gap-2 font-semibold text-white">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-violet-500/20 text-sm text-violet-300">
+        <a href="#" className="flex items-center gap-2 font-semibold text-foreground">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-violet-500/20 text-sm text-violet-600 dark:text-violet-300">
             SY
           </span>
           <span className="hidden sm:inline">{profile.name}</span>
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-4 md:flex">
+          <ThemeToggle />
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-zinc-400 transition hover:text-white"
+              className="text-sm text-muted-foreground transition hover:text-foreground"
             >
               {link.label}
             </a>
@@ -61,13 +63,17 @@ export function Navbar() {
           </a>
         </div>
 
-        <button
-          type="button"
-          className="rounded-lg p-2 text-zinc-400 md:hidden"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="rounded-lg p-2 text-muted-foreground"
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -76,14 +82,14 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="border-t border-white/10 bg-[#030712]/95 px-6 pb-4 md:hidden"
+            className="border-t border-border bg-background/95 px-6 pb-4 md:hidden"
           >
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="block py-3 text-sm text-zinc-300"
+                className="block py-3 text-sm text-muted-foreground"
               >
                 {link.label}
               </a>
