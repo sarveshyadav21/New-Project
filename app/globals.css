@@ -1,3 +1,94 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg: #030712;
+  --surface: #0a0f1a;
+  --border: rgba(255, 255, 255, 0.08);
+  --accent: #8b5cf6;
+  --accent-2: #22d3ee;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: #f4f4f5;
+  min-height: 100vh;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: white;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.glow-orb {
+  filter: blur(80px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #a1a1aa 0%,
+    #fff 40%,
+    #a1a1aa 80%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.chat-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.4);
+  border-radius: 999px;
+}
