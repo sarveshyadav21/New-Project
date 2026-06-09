@@ -3,7 +3,10 @@ import { NextResponse } from "next/server";
 
 import { buildPortfolioChatPrompt } from "../../../lib/chat-prompt";
 import { formatChatReply } from "../../../lib/format-chat-reply";
-import { generateOllamaReply, isOllamaAvailable } from "../../../lib/ollama-chat";
+import {
+  generateOllamaReply,
+  isOllamaAvailable,
+} from "../../../lib/ollama-chat";
 
 async function tryGemini(prompt: string): Promise<string | null> {
   const apiKey = process.env.GOOGLE_API_KEY?.trim();
@@ -36,15 +39,37 @@ export async function POST(req: Request) {
     const userMsg = messages[messages.length - 1]?.content ?? "";
 
     if (!userMsg.trim()) {
-      return NextResponse.json({ error: "Message is required" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Message is required" },
+        { status: 400 },
+      );
     }
 
     const history = messages
       .slice(0, -1)
-      .map((message: { role: string; content: string }) =>
-        `${message.role === "user" ? "Visitor" : "Assistant"}: ${message.content}`,
+      .map(
+        (message: { role: string; content: string }) =>
+          `${message.role === "user" ? "Visitor" : "Assistant"}: ${message.content}`,
       )
       .join("\n");
+
+    // If the visitor explicitly asks for a resume/CV, return a PDF link instead
+    const lower = userMsg.toLowerCase();
+    if (
+      /(resume|cv|curriculum vitae|send (my )?resume|share (my )?resume)/i.test(
+        lower,
+      )
+    ) {
+      const origin = new URL(req.url).origin;
+      const resumeUrl = `${origin}/api/resume`;
+      const resumeReply = `Sure — you can download my resume here: [Download PDF](${resumeUrl})`;
+
+      return NextResponse.json({
+        reply: formatChatReply(resumeReply),
+        provider: null,
+        fileUrl: resumeUrl,
+      });
+    }
 
     const prompt = buildPortfolioChatPrompt(userMsg, history);
 
@@ -59,8 +84,7 @@ export async function POST(req: Request) {
       if (!(await isOllamaAvailable())) {
         return NextResponse.json(
           {
-            error:
-              "Ollama is not running. Start it with: ollama serve",
+            error: "Ollama is not running. Start it with: ollama serve",
           },
           { status: 503 },
         );

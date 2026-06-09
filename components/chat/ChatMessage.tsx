@@ -6,9 +6,10 @@ import { cn } from "../../lib/utils";
 type Props = {
   role: "user" | "assistant";
   content: string;
+  fileUrl?: string;
 };
 
-export function ChatMessage({ role, content }: Props) {
+export function ChatMessage({ role, content, fileUrl }: Props) {
   const isUser = role === "user";
 
   return (
@@ -41,9 +42,7 @@ export function ChatMessage({ role, content }: Props) {
         >
           <ReactMarkdown
             components={{
-              p: ({ children }) => (
-                <p className="mb-2 last:mb-0">{children}</p>
-              ),
+              p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
               ul: ({ children }) => (
                 <ul className="mb-2 list-disc space-y-1 pl-4 last:mb-0">
                   {children}
@@ -54,7 +53,9 @@ export function ChatMessage({ role, content }: Props) {
                   {children}
                 </ol>
               ),
-              li: ({ children }) => <li className="text-foreground/90">{children}</li>,
+              li: ({ children }) => (
+                <li className="text-foreground/90">{children}</li>
+              ),
               strong: ({ children }) => (
                 <strong className="font-semibold text-white">{children}</strong>
               ),
@@ -72,6 +73,17 @@ export function ChatMessage({ role, content }: Props) {
           >
             {content}
           </ReactMarkdown>
+          {!isUser && fileUrl && (
+            <div className="mt-3">
+              <a
+                href={fileUrl}
+                download
+                className="inline-flex items-center gap-2 rounded-md bg-violet-600 px-3 py-2 text-xs font-medium text-white hover:bg-violet-500"
+              >
+                Download Resume
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>

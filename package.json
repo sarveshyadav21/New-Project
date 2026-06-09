@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.1.0",
+    
     "@gsap/react": "^2.1.2",
     "@prisma/client": "^6.19.3",
     "bcrypt": "^6.0.0",

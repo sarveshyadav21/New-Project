@@ -2,16 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  MessageCircle,
-  Minimize2,
-  Send,
-  X,
-} from "lucide-react";
+import { MessageCircle, Minimize2, Send, X } from "lucide-react";
 import { cn } from "../../lib/utils";
 import { ChatMessage } from "./ChatMessage";
 
-type Message = { role: "user" | "assistant"; content: string };
+type Message = {
+  role: "user" | "assistant";
+  content: string;
+  fileUrl?: string;
+};
 
 const STARTERS = [
   "What do you do at Sheshi?",
@@ -72,13 +71,17 @@ export function PortfolioChatbot({ variant = "floating" }: Props) {
         setProvider(data.provider);
       }
 
-      setMessages([
-        ...nextMessages,
-        {
-          role: "assistant",
-          content: data.reply || data.error || "Hmm, something broke — try again?",
-        },
-      ]);
+      const assistantMessage: Message = {
+        role: "assistant",
+        content:
+          data.reply || data.error || "Hmm, something broke — try again?",
+      };
+
+      if (data.fileUrl) {
+        assistantMessage.fileUrl = data.fileUrl;
+      }
+
+      setMessages([...nextMessages, assistantMessage]);
     } catch {
       setMessages([
         ...nextMessages,
@@ -138,6 +141,7 @@ export function PortfolioChatbot({ variant = "floating" }: Props) {
             key={index}
             role={message.role}
             content={message.content}
+            fileUrl={message.fileUrl}
           />
         ))}
 
