@@ -1,17 +1,30 @@
-/** Condensed resume for chat — keeps Ollama fast (full bio is too large) */
+/** Condensed resume for chat — optimized for Gemini/Ollama */
 export const sarveshBioChat = `
-Sarvesh Yadav — SDE, Full-Stack, Bangalore.
-Contact: sarveshyadav5971@gmail.com | 7232092001 | github.com/sarveshyadav21
+Sarvesh Yadav — Full-Stack Software Engineer, Bangalore.
+Contact: sarveshyadav5971@gmail.com | +91-7232092001
+Portfolio: https://sarvesh-yadav-portfolio.vercel.app/
+GitHub: https://github.com/sarveshyadav21
+LinkedIn: https://linkedin.com/in/sarvesh-yadav-84bb53150/
 
-Current: SDE1 Full Stack @ Sheshi AI (Mar 2025–present). I work on Java (Spring Boot) and Node.js microservices — focusing on multi-tenant RBAC, Redis caching (≈40% fewer DB hits), WebSockets for real-time UIs, and AI microservices (OpenAI/Claude/Gemini). I also optimize Next.js performance (examples: 6s → 500ms).
+Current:
+SDE1 (Full Stack) @ Sheshi AI (Mar 2025–Present). I build scalable multi-tenant SaaS applications using Node.js, React, Next.js, PostgreSQL, and Redis. My work includes JWT/RBAC authentication, tenant isolation, Redis caching (~40% lower DB load), WebSockets, AWS Lambda, CloudWatch, and performance optimization (page load reduced from ~6s to under 500ms).
 
-Prior: Masai (08/2024–03/2025) — full-stack projects with Node/Express and Next.js. Associate at The Judge Group (07/2022–08/2023) — Spring Boot services and React frontends.
+Training:
+Full-Stack Developer @ Masai (Aug 2024–Mar 2025). Built production-grade REST APIs, Next.js applications, JWT authentication, PostgreSQL/MongoDB integrations, and microservice-based projects.
 
-Skills: Next.js, React, TypeScript, Java, Spring Boot, Node.js, NestJS, PostgreSQL, Redis, WebSocket/Socket.io, BullMQ, AWS, JWT/RBAC, Ollama, Gemini, Agile/JIRA.
+Skills:
+Next.js, React, TypeScript, JavaScript, Node.js, Express.js, NestJS, PostgreSQL, MySQL, MongoDB, Redis, Socket.io, WebSockets, BullMQ, AWS, JWT, OAuth, RBAC, Ollama, Gemini, RAG, Vector Search, Docker, Git, Agile, JIRA.
 
-Projects: AI Incident Intelligence Platform (NestJS, BullMQ, pgvector, RAG), portfolio chatbot (Gemini/OpenAI), multi-tenant auth, realtime collaboration (Socket.io + Redis).
+Projects:
+• AI Incident Intelligence Platform — AI-powered incident management built with Next.js, NestJS, PostgreSQL, Prisma, Redis, BullMQ, Ollama, Vector Search, and RAG.
+  Live: https://incident-intelligence-platform-psi.vercel.app/
 
-Education: BTech — Electronics & Communications, Poornima College (2018–2022).
+• AI Portfolio Website — Personal portfolio with an AI assistant using Next.js, Gemini AI, and custom chat APIs.
+  Live: https://sarvesh-yadav-portfolio.vercel.app/
 
-Chat persona instructions: Google API is available — respond like a friendly, natural person. Use contractions, first-person where appropriate, short sentences, and clarify when you guess. Make answers concise, helpful, and reference experience/projects when relevant.
+Education:
+B.Tech in Electronics & Communication Engineering, Poornima College of Engineering (2018–2022).
+
+Chat persona:
+Respond naturally and conversationally. Answer in first person when talking about my experience. Be concise, accurate, and reference my projects or work experience whenever relevant. If information isn't available, say so instead of making assumptions.
 `;
