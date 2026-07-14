@@ -3,6 +3,7 @@
 > A modern, full-stack developer portfolio built with **Next.js 14**, featuring an embedded **AI chatbot** (Ollama & Gemini), animated UI with **GSAP + Framer Motion**, secure **JWT authentication**, and a **PostgreSQL** backend via **Prisma ORM**.
 
 ---
+## Live Link: https://sarvesh-yadav-portfolio.vercel.app/
 
 ## 📋 Table of Contents
 
