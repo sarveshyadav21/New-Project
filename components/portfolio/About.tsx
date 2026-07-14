@@ -34,10 +34,10 @@ export function About() {
           data-reveal
           className="text-lg leading-8 text-muted-foreground will-change-transform"
         >
-          I&apos;m a Full-Stack SDE with 2+ years across Java (Spring Boot),
+          I&apos;m a Full-Stack SDE with 1+ years across
           Node.js, and Next.js — based in Bangalore. I build{" "}
           <span className="text-foreground">multi-tenant SaaS</span>, real-time
-          WebSocket systems, and AI microservices for 500+ organizations at
+          WebSocket systems, and AI microservices for 1000+ organizations at
           Sheshi AI.
           <br />
           <br />

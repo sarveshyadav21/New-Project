@@ -35,7 +35,7 @@ export const projects: Project[] = [
       "500+ concurrent organizations",
       "JWT, secure cookies, tenant isolation",
     ],
-    tech: ["Next.js", "Spring Boot", "Node.js", "PostgreSQL", "Redis", "JWT"],
+    tech: ["Next.js", "Node.js", "PostgreSQL", "Redis", "JWT"],
     gradient: "from-blue-600/20 via-indigo-500/10 to-violet-500/20",
   },
   {
@@ -57,11 +57,11 @@ export const projects: Project[] = [
     description:
       "Microservices for in-app chatbot and LLM pipelines using OpenAI, Claude, Gemini, and Ollama.",
     highlights: [
-      "Java & Node.js AI microservices",
+      "Node.js AI microservices",
       "Portfolio assistant with Ollama fallback",
       "Structured resume-grounded responses",
     ],
-    tech: ["Java", "Node.js", "Ollama", "OpenAI", "Next.js"],
+    tech: ["Node.js", "Ollama", "OpenAI", "Next.js"],
     gradient: "from-emerald-600/20 via-teal-500/10 to-cyan-500/20",
   },
   {
@@ -84,7 +84,7 @@ export const skills = [
   },
   {
     category: "Backend",
-    items: ["Java", "Spring Boot", "Node.js", "NestJS", "Express", "Microservices"],
+    items: ["Node.js", "NestJS", "Express", "Microservices"],
   },
   {
     category: "AI & Cloud",
@@ -103,34 +103,23 @@ export const experience = [
     period: "Mar 2025 — Present",
     location: "Bengaluru",
     points: [
-      "Java Spring Boot + Node.js microservices across 5+ services",
-      "Multi-tenant RBAC for 500+ organizations; Redis caching (−40% DB hits)",
-      "WebSocket real-time features; AI microservices (OpenAI, Claude, Gemini)",
-      "Next.js performance: 6s → <500ms; resolved critical auth vulnerabilities",
+      "Built scalable multi-tenant SaaS applications using Node.js, React, Next.js & Redis",
+      "Designed JWT/RBAC authentication and white-label architecture for 1,000+ organizations",
+      "Implemented AI workflows, Redis Pub/Sub, Socket.io & AWS Lambda for scalable real-time systems",
+      "Optimized Next.js performance (SSR/SSG, lazy loading), reducing page load from ~6s to <500ms",
     ],
   },
   {
-    role: "Full-Stack Developer",
+    role: "Full-Stack Developer Training",
     company: "Masai",
     period: "Aug 2024 — Mar 2025",
     location: "Bengaluru",
     points: [
-      "6+ production-grade Node.js/Express APIs",
-      "Microservices, JWT auth, PostgreSQL/MongoDB optimization",
-      "Next.js/React with Redux; Lighthouse +30%",
+      "Built production-grade REST APIs using Node.js & Express.js",
+      "Designed microservice-based applications with JWT, PostgreSQL & MongoDB",
+      "Developed Next.js/React applications with performance optimization",
     ],
-  },
-  {
-    role: "Associate (US Client)",
-    company: "The Judge Group",
-    period: "Jul 2022 — Aug 2023",
-    location: "Noida",
-    points: [
-      "Java Spring Boot backend for 1,000+ concurrent users",
-      "Client-facing dev for cross-functional team of 8+",
-      "JIRA sprint management; zero critical post-release defects on releases",
-    ],
-  },
+  }
 ];
 
 export const education = [
