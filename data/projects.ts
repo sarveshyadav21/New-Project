@@ -21,22 +21,9 @@ export const projects: Project[] = [
       "Similar incidents, dependency graphs, auto postmortems",
     ],
     tech: ["NestJS", "Next.js", "Prisma", "pgvector", "BullMQ", "Ollama"],
-    link: "http://localhost:3000",
+    link: "https://incident-intelligence-platform-psi.vercel.app/login",
     featured: true,
     gradient: "from-violet-600/20 via-fuchsia-500/10 to-cyan-500/20",
-  },
-  {
-    id: "multi-tenant-saas",
-    title: "Multi-Tenant Auth & Domain Routing",
-    description:
-      "RBAC-based multi-tenant login with Redis session caching across Java and Node.js services.",
-    highlights: [
-      "~40% reduction in auth DB queries",
-      "500+ concurrent organizations",
-      "JWT, secure cookies, tenant isolation",
-    ],
-    tech: ["Next.js", "Node.js", "PostgreSQL", "Redis", "JWT"],
-    gradient: "from-blue-600/20 via-indigo-500/10 to-violet-500/20",
   },
   {
     id: "realtime-ws",
@@ -63,18 +50,7 @@ export const projects: Project[] = [
     ],
     tech: ["Node.js", "Ollama", "OpenAI", "Next.js"],
     gradient: "from-emerald-600/20 via-teal-500/10 to-cyan-500/20",
-  },
-  {
-    id: "perf-optimization",
-    title: "Frontend Performance Engineering",
-    description: "12x load time improvement — 6 seconds to under 500ms.",
-    highlights: [
-      "SSR/SSG, lazy loading, code splitting",
-      "Lighthouse score +40 points",
-    ],
-    tech: ["Next.js", "React", "Lighthouse", "Webpack"],
-    gradient: "from-amber-600/20 via-orange-500/10 to-rose-500/20",
-  },
+  }
 ];
 
 export const skills = [
