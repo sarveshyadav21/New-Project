@@ -109,17 +109,6 @@ export const experience = [
       "Optimized Next.js performance (SSR/SSG, lazy loading), reducing page load from ~6s to <500ms",
     ],
   },
-  {
-    role: "Full-Stack Developer Training",
-    company: "Masai",
-    period: "Aug 2024 — Mar 2025",
-    location: "Bengaluru",
-    points: [
-      "Built production-grade REST APIs using Node.js & Express.js",
-      "Designed microservice-based applications with JWT, PostgreSQL & MongoDB",
-      "Developed Next.js/React applications with performance optimization",
-    ],
-  }
 ];
 
 export const education = [
@@ -128,6 +117,11 @@ export const education = [
     school: "Poornima College of Engineering",
     period: "2018 — 2022",
   },
+  {
+    degree: "Full-Stack Development",
+    school: "Masai School",
+    period: "Aug 2024 — Mar 2025",
+  }
 ];
 
 export const certifications = [

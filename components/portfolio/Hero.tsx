@@ -1,10 +1,12 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { ArrowDown, Github, Linkedin, Mail, ExternalLink } from "lucide-react";
 import { profile } from "../../data/bio";
 import { gsap, registerGsapPlugins } from "../../lib/gsap/register";
+import profilePic from "../../data/1000051084.png";
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
@@ -23,7 +25,7 @@ export function Hero() {
 
       tl.from(".hero-badge", {
         opacity: 0,
-        y: 24,
+        y: 20,
         scale: 0.92,
         duration: 0.65,
       })
@@ -73,7 +75,24 @@ export function Hero() {
             duration: 0.45,
           },
           "-=0.25",
+        )
+        .from(
+          ".hero-avatar",
+          {
+            opacity: 0,
+            scale: 0.7,
+            duration: 0.7,
+          },
+          0,
         );
+
+      gsap.to(".hero-avatar", {
+        y: -10,
+        duration: 3.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
 
       gsap.to(".hero-orb-a", {
         x: 40,
@@ -114,6 +133,36 @@ export function Hero() {
       <div className="hero-orb-b glow-orb absolute bottom-1/4 right-1/4 h-80 w-80 rounded-full bg-cyan-600" />
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
+        {/* Profile photo */}
+        <div className="hero-avatar mb-8 inline-block">
+          <div
+            className="relative h-36 w-36 rounded-full p-[3px]"
+            style={{
+              background:
+                "conic-gradient(from 0deg, #a855f7, #e879f9, #22d3ee, #a855f7)",
+            }}
+          >
+            <div className="h-full w-full overflow-hidden rounded-full border-4 border-background">
+              <Image
+                src={profilePic}
+                alt="Sarvesh Yadav — profile photo"
+                width={144}
+                height={144}
+                priority
+                className="h-full w-full object-cover object-top"
+              />
+            </div>
+            {/* Glow ring */}
+            <div
+              className="absolute inset-0 rounded-full opacity-30 blur-lg"
+              style={{
+                background:
+                  "conic-gradient(from 0deg, #a855f7, #e879f9, #22d3ee, #a855f7)",
+              }}
+            />
+          </div>
+        </div>
+
         <span className="hero-badge inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-xs font-medium text-violet-300">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
